@@ -31,4 +31,36 @@ public class CalculatorPage extends BasePageObject {
     return hamburgerBtn.isDisplayed();
   }
 
+  public boolean checkSideMenuAppear() {
+    //explicit wait
+    By locator = MobileBy.AccessibilityId("Navigation header");
+    WebDriverWait wait = new WebDriverWait(driver, 10, 1000);
+    AndroidElement hamburgerBtn = (AndroidElement) wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+    return hamburgerBtn.isDisplayed();
+  }
+
+  public String getTitleSideMenu() {
+    return getText(MobileBy.xpath("//android.widget.TextView[@text=\"Android Studio\"]"));
+  }
+
+  public String getTextboxAngka() {
+    return getText(MobileBy.xpath("//android.widget.EditText[@resource-id=\"com.isl.simpleapp:id/et_1\"]"));
+  }
+
+  public String checkOperationDropdownAppear() {
+    return getText(MobileBy.xpath("//android.widget.TextView[@resource-id=\"android:id/text1\" and @text=\"/\"]"));
+  }
+
+  public String checkOnOperationSelected() {
+    return getText(MobileBy.xpath("//android.widget.TextView[@resource-id=\"android:id/text1\" and @text=\"/\"]"));
+  }
+
+  public String checkOnOperation() {
+    return getText(MobileBy.xpath("//android.widget.TextView[@resource-id=\"android:id/text1\"]"));
+  }
+
+  public String checkOnResult() {
+    return getText(MobileBy.xpath("//android.widget.TextView[@resource-id=\"com.isl.simpleapp:id/tv_result\"]"));
+  }
+
 }
